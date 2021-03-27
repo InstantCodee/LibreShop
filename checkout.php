@@ -48,7 +48,7 @@ function getRandomString($n) {
     return $randomString;
 }
 
-$db = new SQLite3('db/orders.sqlite');
+$db = new SQLite3('../db/orders.sqlite');
 
 // Create invoice
 if (isset($_POST['bag'])) {
