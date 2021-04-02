@@ -8,9 +8,9 @@
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 999;
     text-align: center;
-
     box-shadow: 0 2.8px 1.3px -12px rgba(0, 0, 0, 0.039), 0 6.7px 3.1px -12px rgba(0, 0, 0, 0.057),
         0 12.5px 5.9px -12px rgba(0, 0, 0, 0.07), 0 22.3px 10.5px -12px rgba(0, 0, 0, 0.083),
         0 41.8px 19.6px -12px rgba(0, 0, 0, 0.101), 0 100px 47px -12px rgba(0, 0, 0, 0.14);

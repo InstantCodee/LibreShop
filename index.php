@@ -50,7 +50,7 @@
 							for hackers</h2>
 					</header>
 					<p>You want to look like a badass hacker and to show everyone that you use LibrePay? Then, don't wait much longer! We have what you want.</p>
-					<a class="button" onclick="addProduct('Hacker Hoodie', 34.95)">Add hoodie - 34,95€</a>
+					<a class="button" onclick="addProduct('Hacker Hoodie', 34.95)">Add hoodie - 34,95 €</a>
 				</div>
 				<div class="col-6 col-12-medium imp-medium">
 					<span class="image fit"><img src="assets/img/Hacker%20Hoodie.jpg" alt="" /></span>
@@ -72,7 +72,7 @@
 					</header>
 					<p>Addicted to coffein? We're too. That's why we offer this awesome LibrePay mug.</p>
 					<p>We're honest, it's a regular mug that you would get anywhere else but this mug, damn... Just look at it! It's so beautiful. I bet you have never seen something more beautiful then that!</p>
-					<a class="button" onclick="addProduct('The Mug', 14.99)">Add The Mug - 14,99€</a>
+					<a class="button" onclick="addProduct('The Mug', 14.99)">Add The Mug - 14,99 €</a>
 				</div>
 			</div>
 		</div>
@@ -91,7 +91,7 @@
 					<h3 class="title">Back to the roots</h3>
 					<p>You would have wished to wear this bag back in school time.</p>
 					<ul class="actions special">
-						<li><a class="button" onclick="addProduct('Back to the roots', 44.99)">Add to bag - 44,99€</a></li>
+						<li><a class="button" onclick="addProduct('Back to the roots', 34.99)">Add to bag - 34,99 €</a></li>
 					</ul>
 				</div>
 				<div class="col-4 col-12-medium">
@@ -99,7 +99,7 @@
 					<h3 class="title">regular T-Shirt</h3>
 					<p>For all simple people, we have a regular Shirt for you. Nice to have in a hot summer.</p>
 					<ul class="actions special">
-						<li><a class="button" onclick="addProduct('regular Shirt', 10.69)">Add to bag - 10,69€</a></li>
+						<li><a class="button" onclick="addProduct('regular Shirt', 10.69)">Add to bag - 10,69 €</a></li>
 					</ul>
 				</div>
 				<div class="col-4 col-12-medium">
@@ -107,7 +107,7 @@
 					<h3 class="title">The Bag</h3>
 					<p>Why? When going to shop in a old-fashion real-life store, you need to spread the truth.</p>
 					<ul class="actions special">
-						<li><a class="button" onclick="addProduct('The Bag', 13.37)">Add to bag - 13,37€</a></li>
+						<li><a class="button" onclick="addProduct('The Bag', 3.89)">Add to bag - 3,89 €</a></li>
 					</ul>
 				</div>
 			</div>
