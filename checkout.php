@@ -191,7 +191,7 @@ if (isset($_GET['order'])) {
                 switch ($order_status) {
                     case 0:
                         echo '<p>Your purchase is <b>still pending</b>!</p>';
-                        echo '<small><a href="' . $config['base_url'] . '/pay/' . $order_id . '">Click here to return to LibrePay</a></small>';
+                        echo '<small><a href="' . $config['frontend_url'] . '/pay/' . $order_id . '">Click here to return to LibrePay</a></small>';
                         break;
                     case 1:
                         echo '<p>Your purchase was <b>confirmed</b>!</p>';
