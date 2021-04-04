@@ -16,23 +16,22 @@ $show_cart = true;
 
 function post($url, $data)
 {
+    $body = str_replace('\\', '', json_encode($data));
     $crl = curl_init($url);
     curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($crl, CURLINFO_HEADER_OUT, true);
     curl_setopt($crl, CURLOPT_POST, true);
-    curl_setopt($crl, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($crl, CURLOPT_POSTFIELDS, $body);
 
     // Set HTTP Header for POST request
     curl_setopt($crl, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
-            'Content-Length: ' . strlen(json_encode($data)))
+            'Content-Length: ' . strlen($body))
     );
 
     // Submit the POST request
     $result = curl_exec($crl);
     curl_close($crl);
-
-    echo '<pre>' . var_dump($result) . '</pre>';
 
     return $result;
 }
@@ -85,10 +84,10 @@ if (isset($_POST['bag'])) {
 
     post($config['backend_url'] . '/invoice?secret=' . $config['invoice_secret'], array(
         'selector' => $order_id,
-        'successUrl' => 'http://localhost/checkout.php?s=' . $callback_secret . '&status=1',
-        'failUrl' => 'http://localhost/checkout.php?s=' . $callback_secret . '&status=2',
-        'cancelUrl' => 'http://localhost/checkout.php?s=' . $callback_secret . '&status=3',
-        'redirectTo' => 'http://localhost/checkout.php?order=' . $order_id,
+        'successUrl' => $config['base_url'] . '/checkout.php?s=' . $callback_secret . '&status=1',
+        'failUrl' => $config['base_url'] . '/checkout.php?s=' . $callback_secret . '&status=2',
+        'cancelUrl' => $config['base_url'] . '/checkout.php?s=' . $callback_secret . '&status=3',
+        'redirectTo' => $config['base_url'] . '/checkout.php?order=' . $order_id,
         'currency' => 'eur',
         'cart' => $bagClone
     ));
@@ -128,7 +127,7 @@ if (isset($_GET['order'])) {
     $result = $stmt->execute();
 
     $fetch = $stmt->get_result();
-    if (!$fetch) {
+    if ($fetch->num_rows == 0) {
         $order_not_found = true;
     } else {
         $order_status = $fetch->fetch_array()['completed'];
@@ -177,7 +176,7 @@ if (isset($_GET['order'])) {
                 <!-- This is kind of a messy way but this element holds the bag content in JSON. -->
                 <!-- It will later be validated by PHP. -->
                 <input id="bagContent" name="bag" style="display: none" value="">
-                
+
                 <h3>Total of <span id="bagValue"></span></h3>
                 <button class="lbButton" type="submit">Buy with LibrePay</button>
             </form>
@@ -192,7 +191,7 @@ if (isset($_GET['order'])) {
                 switch ($order_status) {
                     case 0:
                         echo '<p>Your purchase is <b>still pending</b>!</p>';
-                        echo '<small><a href="http://localhost:4200/pay/' . $order_id . '">Click here to return to LibrePay</a></small>';
+                        echo '<small><a href="' . $config['base_url'] . '/pay/' . $order_id . '">Click here to return to LibrePay</a></small>';
                         break;
                     case 1:
                         echo '<p>Your purchase was <b>confirmed</b>!</p>';
