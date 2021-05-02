@@ -74,6 +74,10 @@ if (isset($_POST['bag'])) {
         ));
     }
 
+    if (count($bagClone) == 0) {
+        return;
+    }
+
     $callback_secret = getRandomString(16);
     $order_id = getRandomString(16);
     $order_status = 0;
@@ -170,7 +174,7 @@ if (isset($_GET['order'])) {
             <p>Once you\'re satisfied with your chosen articles you\'ll<br />be ready to experience the power of LibrePay.</p><br />
 
             <!-- List will be filled by JavaScript -->
-            <form method="post" action="checkout.php">
+            <form method="post" action="checkout.php" id="cart">
                 <ul id="bagList" xyz="fade-100% down-3 stagger-2"></ul>
 
                 <!-- This is kind of a messy way but this element holds the bag content in JSON. -->
@@ -180,6 +184,11 @@ if (isset($_GET['order'])) {
                 <h3>Total of <span id="bagValue"></span></h3>
                 <button class="lbButton" type="submit">Buy with LibrePay</button>
             </form>
+            <div id="cart_empty" style="display: none">
+                <h3>Your cart is empty</h3>
+                <a href="' . $config['base_url'] . '">Let\'s go shopping</a>
+            </div>
+            
             '; else {
             if (!$order_not_found) {
                 echo '

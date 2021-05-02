@@ -5,17 +5,16 @@ frontend.
 ## Install
 Simply **put this repository somewhere on your website** (e.g. in a subdirectory). Next up you'll have to **rename** the
 `config.example.php` into `config.php` and replace the values in there to fit your configuration. Also make sure you have
-the `sqlite3` and `curl` **extensions enabled** in your `php.ini`.
+the `mysqli`, `pdo_mysql` and `curl` **extensions enabled** in your `php.ini`.
 
-At last you have to create new SQLite database at `../db/orders.sqlite` *(folder `db` is inside the same folder as this
-demo site is in)*. And now execute the SQL command to create the table:
+Now setup a new MySQL server (if you haven't yet) and create this table in some database:
 ```sql
 CREATE TABLE orders (id VARCHAR(16) PRIMARY KEY, secret VARCHAR(16) NOT NULL, bag TEXT NOT NULL, completed INTEGER);
 ```
 
 Now you should be able to access and view the website.
 
-*This website is live with PHP 7.2 running on a Nginx server.*
+*This website is live with PHP 7.2 running on a lighttpd server.*
 
 ## Disclaimer
 Of course none of the listed items can actually be bought and the payment process can only be completed with

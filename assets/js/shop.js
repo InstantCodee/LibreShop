@@ -70,18 +70,32 @@ function buildBag() {
     const bagList = document.getElementById('bagList');
     const bagContent = document.getElementById('bagContent');
 
+    // If bag is empty
+    if (items.length === 0) {
+        const cartForm = document.getElementById('cart');
+        const cartEmptyText = document.getElementById('cart_empty');
+
+        // We're currently not on the checkout page.
+        if (cartForm !== undefined && cartEmptyText !== undefined) {
+            cartForm.style = 'display: none';
+            cartEmptyText.style = '';
+        }
+
+        return;
+    }
+
     // Clear bag
     bagList.innerHTML = '';
 
     for (let i = 0; i < items.length; i++) {
-        let item = document.createElement('li');
-        let productImg = document.createElement('img');
+        const item = document.createElement('li');
+        const productImg = document.createElement('img');
 
         /* Build action menu */
-        let actions = document.createElement('div');
+        const actions = document.createElement('div');
         actions.className = "bagActions";
 
-        let actionDelete = document.createElement('span');
+        const actionDelete = document.createElement('span');
         actionDelete.className = "icon solid major fa-trash-alt";
         actions.onclick = function (event) {
             deleteItem(items[i].product);
